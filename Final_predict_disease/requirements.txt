@@ -1,6 +1,7 @@
 uvicorn
 pandas
 telegram
+python-telegram-bot
 numpy
 scikit-learn
 xgboost
