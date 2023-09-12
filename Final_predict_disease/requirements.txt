@@ -1,0 +1,8 @@
+pandas
+logging
+telegram
+pickle
+warnings
+numpy
+scikit-learn
+xgboost
