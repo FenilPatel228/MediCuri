@@ -1,6 +1,5 @@
 pandas
 telegram
-pickle
 warnings
 numpy
 scikit-learn
