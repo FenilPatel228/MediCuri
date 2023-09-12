@@ -13,11 +13,11 @@ import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
 from pbl_prd_py import predict_disease
-data = pd.read_csv('.Training.csv')
+data = pd.read_csv('Final_predict_disease.Training.csv')
 X = data.drop('prognosis', axis=1)
 y = data['prognosis']
-des = pd.read_csv('.symptom_Description.csv')
-pre = pd.read_csv('.symptom_precaution.csv')
+des = pd.read_csv('Final_predict_disease.symptom_Description.csv')
+pre = pd.read_csv('Final_predict_disease.symptom_precaution.csv')
 sym_list='''
 ◉ Abdominal pain
 ◉ Abnormal menstruation
@@ -150,13 +150,13 @@ sym_list='''
 ◉ Yellowing of eyes
 ◉ Yellowish skin
 '''
-with open('bayes_dis_model.pkl', 'rb') as bayes:
+with open('Final_predict_disease.bayes_dis_model.pkl', 'rb') as bayes:
     bayes_model = pickle.load(bayes)
     
-with open('rf_dis_model.pkl', 'rb') as rf:
+with open('Final_predict_disease.rf_dis_model.pkl', 'rb') as rf:
     random_forest_model = pickle.load(rf)
 
-with open('xg_dis_model.pkl', 'rb') as xg:
+with open('Final_predict_disease.xg_dis_model.pkl', 'rb') as xg:
     xgboost_model = pickle.load(xg)
 
 # Initialize logging and other settings
