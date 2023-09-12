@@ -13,11 +13,11 @@ import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
 from pbl_prd_py import predict_disease
-data = pd.read_csv('Training.csv')
+data = pd.read_csv('.Training.csv')
 X = data.drop('prognosis', axis=1)
 y = data['prognosis']
-des = pd.read_csv('symptom_Description.csv')
-pre = pd.read_csv('symptom_precaution.csv')
+des = pd.read_csv('.symptom_Description.csv')
+pre = pd.read_csv('.symptom_precaution.csv')
 sym_list='''
 ◉ Abdominal pain
 ◉ Abnormal menstruation
