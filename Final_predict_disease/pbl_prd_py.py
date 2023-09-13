@@ -10,7 +10,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
-data = pd.read_csv('Training.csv')
+data = pd.read_csv('.Training.csv')
 data.head()
 X = data.drop('prognosis', axis=1)
 y = data['prognosis']
