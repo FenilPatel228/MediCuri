@@ -15,7 +15,10 @@ import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
 from pbl_prd_py import predict_disease
-data = pd.read_csv('Training.csv')
+
+
+
+data = pd.read_csv('Final_predict_disease/Training.csv')
 X = data.drop('prognosis', axis=1)
 y = data['prognosis']
 des = pd.read_csv('symptom_Description.csv')
