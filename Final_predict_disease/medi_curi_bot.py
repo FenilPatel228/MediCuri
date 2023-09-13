@@ -8,12 +8,18 @@ from telegram.ext import (
     filters,
     ContextTypes,
 )
+import os
+
+
+
 import pickle
 import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
 from pbl_prd_py import predict_disease
-data = pd.read_csv('Final_predict_disease/Training.csv')
+# Get the absolute path to the 'Training.csv' file
+file_path = os.path.abspath('Training.csv')
+data = pd.read_csv(file_path)
 X = data.drop('prognosis', axis=1)
 y = data['prognosis']
 des = pd.read_csv('Final_predict_disease/symptom_Description.csv')
