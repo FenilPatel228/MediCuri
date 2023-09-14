@@ -294,7 +294,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 def main() -> None:
-    application = Application.builder().token("6358213237:AAF3YW4w6ilkcHCvWKibF5TlP7q68Yon4sc").build()
+    application = Application.builder().token(API_TOKEN).build()
 
     conversation_handler = ConversationHandler(
         entry_points=[CommandHandler("start", start)],
