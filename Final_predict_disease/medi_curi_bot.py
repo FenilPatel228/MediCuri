@@ -1,4 +1,5 @@
 import logging
+import asyncio
 from telegram import Update
 from telegram.ext import (
     Application,
@@ -15,6 +16,8 @@ import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
 from pbl_prd_py import predict_disease
+
+
 
 data = pd.read_csv('Final_predict_disease/Training.csv')
 X = data.drop('prognosis', axis=1)
@@ -289,7 +292,9 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Conversation canceled. Type /start to begin a new conversation.')
     return ConversationHandler.END
 
-def main() -> None:
+def main():
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
     application = Application.builder().token(API_TOKEN).build()
 
     conversation_handler = ConversationHandler(
