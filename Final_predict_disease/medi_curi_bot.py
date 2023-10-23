@@ -296,7 +296,8 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
-    application = Application.builder().token(global API_TOKEN).build()
+    global API_TOKEN
+    application = Application.builder().token(API_TOKEN).build()
 
     conversation_handler = ConversationHandler(
         entry_points=[CommandHandler("start", start)],
