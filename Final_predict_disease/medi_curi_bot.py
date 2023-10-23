@@ -310,23 +310,8 @@ def main() -> None:
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 
-logger.info("In webhook handler")
-global bot_lang
-if request.method == "POST":
-    global update
-    update = Update.de_json(request.get_json(force=True), bot)
-    # your bot can receive updates without messages
-    if update.message:
-      if timeout(update.message):
-        return "Timeout"
-      bot.send_chat_action(chat_id=update.message.chat_id,
-                           action=ChatAction.TYPING)
-      if update.message.text in ("/start", "/Start"):
-        start()
-        return "ok"
-      # default
-      keyboard_handler()
-      return "ok"
+if __name__ == "__main__":
+    main()
 
 
 
