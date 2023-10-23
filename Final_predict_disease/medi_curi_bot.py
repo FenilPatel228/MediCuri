@@ -16,10 +16,6 @@ import warnings
 warnings.filterwarnings("ignore")
 from pbl_prd_py import predict_disease
 
-from flask import Flask, request, render_template
-app = Flask(__name__)
-
-
 data = pd.read_csv('Final_predict_disease/Training.csv')
 X = data.drop('prognosis', axis=1)
 y = data['prognosis']
@@ -313,23 +309,7 @@ def main() -> None:
 
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
-# if __name__ == "__main__":
-#     main()
 
-
-@app.route('/')
-def index():
-  return render_template("index.html")
-# The bot entry point. Telegram send HTTPS POST request whenever there is an update for the bot.
-# Therefore, we only accept the POST method.
-@app.route('/webhook', methods=['POST'])
-def webhook():
-  """Webhook for the telegram bot.
-    Args:
-        request: A flask.Request object.
-    Returns:
-        Response text.
-    """
   logger.info("In webhook handler")
   global bot_lang
   if request.method == "POST":
@@ -349,9 +329,4 @@ def webhook():
       return "ok"
 
 
-
-if __name__ == "__main__":
-    main()
-    app.run()
-    
 
