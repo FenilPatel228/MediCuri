@@ -10,7 +10,7 @@ from telegram.ext import (
     ContextTypes,
 )
 
-
+API_TOKEN=os.environ('API_TOKEN')
 import pickle
 import pandas as pd
 import warnings
